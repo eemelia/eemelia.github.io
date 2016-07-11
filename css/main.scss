@@ -1,0 +1,87 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset 'utf-8';
+
+$gray-base: #000;
+$gray-light: lighten($gray-base, 46.7%); // #777
+
+$brand-primary: $gray-light;
+$logo-color: #e30030;
+$text-color: black;
+$text-color-light: white;
+$background-color-light: white;
+$background-color-dark: black;
+
+$font-family-sans-serif: 'Brandon Text', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$font-family-logo: 'Cairo', $font-family-sans-serif;
+$font-weight-logo: 400;
+$letter-spacing-logo: 0.033em;
+
+$line-height-base: 1.66;
+$letter-spacing-base: 0.066em;
+
+$header-height: 100px;
+
+@mixin dark-background {
+  background-color: $background-color-dark;
+  color: $text-color-light;
+}
+
+@mixin logo-style {
+  font-family: $font-family-logo;
+  font-weight: $font-weight-logo;
+  letter-spacing: $letter-spacing-logo;
+  text-transform: lowercase;
+  color: $logo-color;
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+//@import 'fonts';
+@import 'bootstrap';
+
+body, address {
+  letter-spacing: $letter-spacing-base;
+}
+
+a {
+  text-decoration: inherit;
+
+  &:hover {
+    text-decoration: inherit;
+  }
+}
+
+.navbar-default {
+  padding: 20px 0 15px;
+}
+
+.navbar-brand {
+  @include logo-style;
+  position: relative;
+  top: -5px;
+  font-size: 42px;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+
+    transition: color 0.2s;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+      color: $text-color-light;
+      text-decoration: inherit;
+    }
+  }
+}
+
+.thumbnail-reference {
+  border: 0;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
